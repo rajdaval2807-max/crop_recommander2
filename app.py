@@ -17,9 +17,9 @@ MODEL_DIR = "models"
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 files = {
-    "soil_model.h5": "GOOGLE_DRIVE_FILE_ID_1",
-    "crop_model.pkl": "GOOGLE_DRIVE_FILE_ID_2",
-    "soil_encoder.pkl": "GOOGLE_DRIVE_FILE_ID_3"
+    "soil_model.h5": "1QFu-ttnWP1WTTu_WpHcggD2clHV19-8Q",
+    "crop_model.pkl": "1zyPTOhtX-1vhe1_RQav7ryvW6ip1dgYJ",
+    "soil_encoder.pkl": "1B-VKiW4zL7r9YlRMCRecCLfURT9UeYDI"
 }
 
 for name, file_id in files.items():
