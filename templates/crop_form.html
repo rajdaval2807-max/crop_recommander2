@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            🌾 Crop Recommendation
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            Fill in the details below to get AI-powered crop suggestions for your farm
+        </p>
+    </div>
+    
+    <div class="form-container" style="max-width: 700px;">
+        <form method="POST" enctype="multipart/form-data">
+            <!-- Soil Image Upload -->
+            <div style="background: var(--light-green); padding: 25px; border-radius: 15px; margin-bottom: 30px;">
+                <h3 style="color: var(--dark-green); margin-bottom: 15px;">📷 Soil Image Analysis</h3>
+                <div class="form-group">
+                    <label for="soil_image">Upload Soil Photo</label>
+                    <input type="file" id="soil_image" name="soil_image" class="form-control" 
+                           accept="image/*" required 
+                           style="padding: 12px; background: white;">
+                </div>
+                <p style="color: var(--gray); font-size: 0.9rem; margin-top: 10px;">
+                    Upload a clear photo of your soil for accurate analysis
+                </p>
+            </div>
+            
+            <!-- Environmental Parameters -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: var(--dark-green); margin-bottom: 20px;">📊 Environmental Parameters</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div class="form-group">
+                        <label for="N">🌿 Nitrogen (N)</label>
+                        <input type="number" id="N" name="N" class="form-control" step="0.1" required 
+                               placeholder="e.g., 90" min="0" max="140">
+                    </div>
+                    <div class="form-group">
+                        <label for="P">🧪 Phosphorus (P)</label>
+                        <input type="number" id="P" name="P" class="form-control" step="0.1" required 
+                               placeholder="e.g., 42" min="0" max="145">
+                    </div>
+                    <div class="form-group">
+                        <label for="K">⚡ Potassium (K)</label>
+                        <input type="number" id="K" name="K" class="form-control" step="0.1" required 
+                               placeholder="e.g., 43" min="0" max="205">
+                    </div>
+                    <div class="form-group">
+                        <label for="temperature">🌡️ Temperature (°C)</label>
+                        <input type="number" id="temperature" name="temperature" class="form-control" step="0.1" required 
+                               placeholder="e.g., 20.8" min="-5" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="humidity">💧 Humidity (%)</label>
+                        <input type="number" id="humidity" name="humidity" class="form-control" step="0.1" required 
+                               placeholder="e.g., 82.0" min="0" max="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="ph">📈 pH Level</label>
+                        <input type="number" id="ph" name="ph" class="form-control" step="0.1" required 
+                               placeholder="e.g., 6.5" min="0" max="14">
+                    </div>
+                    <div class="form-group">
+                        <label for="rainfall">🌧️ Rainfall (mm)</label>
+                        <input type="number" id="rainfall" name="rainfall" class="form-control" step="0.1" required 
+                               placeholder="e.g., 202.9" min="0" max="300">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="btn" style="width: 100%; padding: 16px; font-size: 1.1rem;">
+                🚀 Get Crop Recommendation
+            </button>
+        </form>
+        
+        <!-- Info Box -->
+        <div style="background: var(--light-green); padding: 20px; border-radius: 15px; margin-top: 30px;">
+            <h4 style="color: var(--dark-green); margin-bottom: 10px;">💡 Tips for Best Results:</h4>
+            <ul style="color: var(--gray); padding-left: 20px;">
+                <li>Use recent soil samples for accurate analysis</li>
+                <li>Enter average values for the growing season</li>
+                <li>Take soil photos in natural daylight</li>
+                <li>Update parameters based on recent weather data</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.8rem;">
+            🏛️ Government Schemes
+        </h1>
+        <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+            Latest government schemes, subsidies, and financial assistance programs for farmers
+        </p>
+    </div>
+    
+    <!-- Scheme Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 60px;">
+        {% for scheme in schemes %}
+        <div class="card" style="height: 100%;">
+            <div style="padding: 30px;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px;">
+                    <h3 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 1.4rem;">
+                        {{ scheme.name }}
+                    </h3>
+                    <span style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); 
+                                 color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+                        Active
+                    </span>
+                </div>
+                
+                <p style="color: var(--gray); margin-bottom: 25px; line-height: 1.6;">
+                    {{ scheme.description }}
+                </p>
+                
+                <div style="margin-bottom: 25px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                        <span style="color: var(--dark-green); font-weight: 600;">✅ Eligibility:</span>
+                        <span style="color: var(--gray);">{{ scheme.eligibility }}</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="color: var(--dark-green); font-weight: 600;">💰 Benefits:</span>
+                        <span style="color: #27ae60; font-weight: 600;">{{ scheme.benefits }}</span>
+                    </div>
+                </div>
+                
+                <a href="{{ scheme.link }}" target="_blank" class="btn" style="width: 100%; text-align: center; padding: 12px;">
+                    🌐 Visit Official Website
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Application Process -->
+    <div style="background: linear-gradient(135deg, var(--light-green) 0%, #e6f7ff 100%); 
+                padding: 50px; border-radius: 20px; margin-bottom: 50px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; text-align: center; margin-bottom: 30px;">
+            📝 How to Apply
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary-green); color: white; 
+                            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                            font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">
+                    1
+                </div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Check Eligibility</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Verify if you meet all eligibility criteria mentioned in the scheme
+                </p>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary-green); color: white; 
+                            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                            font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">
+                    2
+                </div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Collect Documents</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Aadhaar Card, Land Records, Bank Details, Farmer ID, etc.
+                </p>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary-green); color: white; 
+                            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                            font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">
+                    3
+                </div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Apply Online/Offline</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Visit the official website or local agriculture office
+                </p>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="width: 60px; height: 60px; background: var(--primary-green); color: white; 
+                            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+                            font-size: 1.5rem; font-weight: bold; margin: 0 auto 20px;">
+                    4
+                </div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Track Status</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Use application ID to track approval and payment status
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Important Documents -->
+    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 30px;">
+            📋 Required Documents for Most Schemes
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">🆔</div>
+                <div style="font-weight: 600; color: var(--dark-green);">Identity Proof</div>
+                <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                    Aadhaar Card<br>Voter ID<br>PAN Card
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">📄</div>
+                <div style="font-weight: 600; color: var(--dark-green);">Land Records</div>
+                <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                    7/12 Extract<br>Land Title<br>Mutation Copy
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">🏦</div>
+                <div style="font-weight: 600; color: var(--dark-green);">Bank Details</div>
+                <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                    Passbook Copy<br>IFSC Code<br>Canceled Cheque
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 15px;">👨‍🌾</div>
+                <div style="font-weight: 600; color: var(--dark-green);">Farmer ID</div>
+                <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                    Kisan Credit Card<br>Farmer Certificate<br>Crop Insurance
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Helpline -->
+    <div style="text-align: center; margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); 
+                border-radius: 20px; color: white;">
+        <h2 style="font-family: 'Montserrat', sans-serif; margin-bottom: 20px;">📞 Need Help?</h2>
+        <p style="margin-bottom: 25px; font-size: 1.1rem; opacity: 0.9;">
+            Contact the National Agricultural Helpline for scheme assistance
+        </p>
+        <div style="font-size: 1.8rem; font-weight: 700; margin-bottom: 10px;">
+            📞 1800-180-1551
+        </div>
+        <p style="opacity: 0.8;">Toll-free | 24x7 | Multilingual Support</p>
+    </div>
+</div>
+{% endblock %}

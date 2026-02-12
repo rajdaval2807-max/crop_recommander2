@@ -1,0 +1,365 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.8rem;">
+            📚 AgroAI User Guide
+        </h1>
+        <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+            Learn how to use all features of AgroAI for smarter farming decisions
+        </p>
+    </div>
+    
+    <!-- Quick Navigation -->
+    <div style="background: var(--light-green); padding: 30px; border-radius: 20px; margin-bottom: 50px;">
+        <h3 style="color: var(--dark-green); margin-bottom: 20px; text-align: center;">
+            🔍 Quick Navigation
+        </h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+            <a href="#soil-detection" style="background: white; color: var(--dark-green); padding: 12px 20px; 
+               border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 10px var(--shadow);">
+               📷 Soil Detection
+            </a>
+            <a href="#crop-recommendation" style="background: white; color: var(--dark-green); padding: 12px 20px; 
+               border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 10px var(--shadow);">
+               🌾 Crop Recommendation
+            </a>
+            <a href="#soil-health" style="background: white; color: var(--dark-green); padding: 12px 20px; 
+               border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 10px var(--shadow);">
+               💚 Soil Health
+            </a>
+            <a href="#weather" style="background: white; color: var(--dark-green); padding: 12px 20px; 
+               border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 10px var(--shadow);">
+               ⛅ Weather
+            </a>
+            <a href="#finance" style="background: white; color: var(--dark-green); padding: 12px 20px; 
+               border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 10px var(--shadow);">
+               💰 Finance
+            </a>
+            <a href="#schemes" style="background: white; color: var(--dark-green); padding: 12px 20px; 
+               border-radius: 25px; text-decoration: none; font-weight: 600; box-shadow: 0 3px 10px var(--shadow);">
+               🏛️ Schemes
+            </a>
+        </div>
+    </div>
+    
+    <!-- Section 1: Soil Detection -->
+    <div id="soil-detection" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 25px; 
+                   display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 2rem;">📷</span> Soil Type Detection
+        </h2>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+                <div>
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">How to Use</h3>
+                    <ol style="color: var(--gray); padding-left: 20px; line-height: 1.8;">
+                        <li><strong>Navigate to Soil Detection</strong> from Dashboard or Navbar</li>
+                        <li><strong>Take a clear photo</strong> of your soil sample</li>
+                        <li><strong>Upload the image</strong> using the file selector</li>
+                        <li><strong>Click "Analyze Soil Type"</strong> to get instant results</li>
+                        <li><strong>View detailed analysis</strong> including soil characteristics</li>
+                    </ol>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 5rem; margin-bottom: 20px;">📷</div>
+                    <p style="color: var(--gray); font-style: italic;">
+                        "Best results with natural daylight and close-up shots"
+                    </p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: var(--light-green); border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 15px;">💡 Tips for Best Results</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-green);">🌅 Lighting</div>
+                        <div style="color: var(--gray); font-size: 0.9rem;">Use natural daylight, avoid shadows</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-green);">📸 Focus</div>
+                        <div style="color: var(--gray); font-size: 0.9rem;">Focus on soil texture, remove debris</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-green);">🎨 Color</div>
+                        <div style="color: var(--gray); font-size: 0.9rem;">Capture true soil color, not too dark</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section 2: Crop Recommendation -->
+    <div id="crop-recommendation" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 25px; 
+                   display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 2rem;">🌾</span> Crop Recommendation
+        </h2>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px;">Step-by-Step Guide</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 30px;">
+                <div style="text-align: center; padding: 20px; background: var(--light-green); border-radius: 15px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">1️⃣</div>
+                    <h4 style="color: var(--dark-green); margin-bottom: 10px;">Upload Soil Image</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        Same process as soil detection. AI analyzes soil type first.
+                    </p>
+                </div>
+                
+                <div style="text-align: center; padding: 20px; background: var(--light-green); border-radius: 15px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">2️⃣</div>
+                    <h4 style="color: var(--dark-green); margin-bottom: 10px;">Enter Parameters</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        N, P, K values, temperature, humidity, pH, and rainfall.
+                    </p>
+                </div>
+                
+                <div style="text-align: center; padding: 20px; background: var(--light-green); border-radius: 15px;">
+                    <div style="font-size: 2rem; margin-bottom: 15px;">3️⃣</div>
+                    <h4 style="color: var(--dark-green); margin-bottom: 10px;">Get Recommendations</h4>
+                    <p style="color: var(--gray); font-size: 0.95rem;">
+                        AI suggests best crops based on all parameters combined.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="alert alert-info">
+                <div class="alert-icon">📊</div>
+                <div>
+                    <strong>Parameter Guidelines:</strong>
+                    <div style="margin-top: 10px;">
+                        • <strong>N-P-K:</strong> Get from soil testing labs or testing kits<br>
+                        • <strong>Temperature/Humidity:</strong> Use current weather data<br>
+                        • <strong>pH:</strong> 6.0-7.5 is optimal for most crops<br>
+                        • <strong>Rainfall:</strong> Use seasonal averages
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section 3: Soil Health -->
+    <div id="soil-health" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 25px; 
+                   display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 2rem;">💚</span> Soil Health Meter
+        </h2>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div>
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">Understanding Results</h3>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <div style="width: 20px; height: 20px; background: #27ae60; border-radius: 50%;"></div>
+                            <span style="font-weight: 600; color: var(--dark-green);">Excellent (80-100)</span>
+                        </div>
+                        <p style="color: var(--gray); padding-left: 30px;">
+                            Soil is highly fertile. Maintain current practices.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <div style="width: 20px; height: 20px; background: #2ecc71; border-radius: 50%;"></div>
+                            <span style="font-weight: 600; color: var(--dark-green);">Good (60-79)</span>
+                        </div>
+                        <p style="color: var(--gray); padding-left: 30px;">
+                            Soil is fertile. Minor improvements suggested.
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <div style="width: 20px; height: 20px; background: #f39c12; border-radius: 50%;"></div>
+                            <span style="font-weight: 600; color: var(--dark-green);">Moderate (40-59)</span>
+                        </div>
+                        <p style="color: var(--gray); padding-left: 30px;">
+                            Soil needs attention. Follow suggestions.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <div style="width: 20px; height: 20px; background: #e74c3c; border-radius: 50%;"></div>
+                            <span style="font-weight: 600; color: var(--dark-green);">Poor (0-39)</span>
+                        </div>
+                        <p style="color: var(--gray); padding-left: 30px;">
+                            Immediate action required. Consult expert.
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">Improvement Suggestions</h3>
+                    
+                    <div class="alert alert-warning">
+                        <div class="alert-icon">💡</div>
+                        <div>
+                            <strong>Common Solutions:</strong>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li><strong>Low Nitrogen:</strong> Add organic compost or urea</li>
+                                <li><strong>Low Phosphorus:</strong> Use bone meal or DAP fertilizer</li>
+                                <li><strong>Low Potassium:</strong> Apply wood ash or potassium sulfate</li>
+                                <li><strong>pH Issues:</strong> Lime (to increase) or sulfur (to decrease)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section 4: Weather -->
+    <div id="weather" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 25px; 
+                   display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 2rem;">⛅</span> Weather Forecast
+        </h2>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px;">Understanding Weather Alerts</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 30px;">
+                <div class="alert alert-warning">
+                    <div class="alert-icon">🌧️</div>
+                    <div>
+                        <strong>Heavy Rainfall Alert</strong>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">
+                            >20mm rain expected. Delay irrigation, prepare drainage.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <div class="alert-icon">🔥</div>
+                    <div>
+                        <strong>Heatwave Alert</strong>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">
+                            >40°C expected. Increase irrigation, provide shade.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="alert alert-warning">
+                    <div class="alert-icon">💨</div>
+                    <div>
+                        <strong>Strong Wind Alert</strong>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">
+                            >30 km/h winds. Secure crops and equipment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alert alert-info">
+                <div class="alert-icon">📱</div>
+                <div>
+                    <strong>Pro Tip:</strong> Check weather forecast daily and plan farming activities accordingly. 
+                    Use the 5-day forecast to schedule planting, irrigation, and harvesting.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section 5: Finance -->
+    <div id="finance" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 25px; 
+                   display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 2rem;">💰</span> Farm Finance Management
+        </h2>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div>
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">Adding Entries</h3>
+                    <ol style="color: var(--gray); padding-left: 20px; line-height: 1.8;">
+                        <li><strong>Select entry type</strong> (Income or Expense)</li>
+                        <li><strong>Enter name and description</strong> for clear tracking</li>
+                        <li><strong>Input amount</strong> accurately</li>
+                        <li><strong>Choose date</strong> of transaction</li>
+                        <li><strong>Save entry</strong> for future reference</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--dark-green); margin-bottom: 15px;">Using Filters</h3>
+                    <ul style="color: var(--gray); padding-left: 20px; line-height: 1.8;">
+                        <li><strong>Date Range:</strong> Filter by specific periods</li>
+                        <li><strong>Type:</strong> View only income or expenses</li>
+                        <li><strong>Export:</strong> Download data as CSV</li>
+                        <li><strong>Delete:</strong> Remove incorrect entries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%); 
+                        border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 15px;">📈 Financial Analysis Tips</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-green);">💸 Track Daily</div>
+                        <div style="color: var(--gray); font-size: 0.9rem;">Record expenses immediately</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-green);">📊 Categorize</div>
+                        <div style="color: var(--gray); font-size: 0.9rem;">Group similar expenses</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; color: var(--dark-green);">📅 Seasonal</div>
+                        <div style="color: var(--gray); font-size: 0.9rem;">Compare season-wise data</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section 6: Schemes -->
+    <div id="schemes" style="margin-bottom: 60px; scroll-margin-top: 100px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 25px; 
+                   display: flex; align-items: center; gap: 15px;">
+            <span style="font-size: 2rem;">🏛️</span> Government Schemes
+        </h2>
+        
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px;">How to Benefit</h3>
+            
+            <div class="alert alert-success">
+                <div class="alert-icon">✅</div>
+                <div>
+                    <strong>Important Steps:</strong>
+                    <ol style="margin-top: 10px; padding-left: 20px;">
+                        <li><strong>Check Eligibility:</strong> Each scheme has specific criteria</li>
+                        <li><strong>Prepare Documents:</strong> Keep all required papers ready</li>
+                        <li><strong>Apply Early:</strong> Schemes often have limited funds</li>
+                        <li><strong>Follow Up:</strong> Track application status regularly</li>
+                        <li><strong>Visit Local Office:</strong> Get guidance from agriculture officers</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Support Section -->
+    <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%); 
+                border-radius: 20px; color: white;">
+        <h2 style="font-family: 'Montserrat', sans-serif; margin-bottom: 20px;">❓ Need More Help?</h2>
+        <p style="margin-bottom: 30px; font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 30px;">
+            Contact our support team for any questions about using AgroAI
+        </p>
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <a href="{{ url_for('contact') }}" class="btn" style="background: white; color: var(--dark-green);">
+                📞 Contact Support
+            </a>
+            <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">
+                🏠 Back to Dashboard
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

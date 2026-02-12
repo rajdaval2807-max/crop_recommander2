@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            💰 Farm Finance Tracker
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            Track your farm income and expenses for better financial management
+        </p>
+    </div>
+    
+    <div class="form-container">
+        <form method="POST">
+            <h3 style="color: var(--dark-green); margin-bottom: 25px; text-align: center;">
+                Add New Entry
+            </h3>
+            
+            <!-- Entry Type Selection -->
+            <div class="form-group">
+                <label>📊 Entry Type</label>
+                <div style="display: flex; gap: 20px; margin-top: 10px;">
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="entry_type" value="income" required style="accent-color: #27ae60;">
+                        <span style="color: #27ae60; font-weight: 600;">💰 Income</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                        <input type="radio" name="entry_type" value="expense" required style="accent-color: #e74c3c;">
+                        <span style="color: #e74c3c; font-weight: 600;">💸 Expense</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Entry Details -->
+            <div class="form-group">
+                <label for="name">📝 Entry Name</label>
+                <input type="text" id="name" name="name" class="form-control" required 
+                       placeholder="e.g., Fertilizer Purchase, Crop Sale">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">📋 Description (Optional)</label>
+                <textarea id="description" name="description" class="form-control" rows="3" 
+                          placeholder="Add details about this entry..."></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">💵 Amount (₹)</label>
+                <input type="number" id="amount" name="amount" class="form-control" step="0.01" required 
+                       placeholder="e.g., 5000.00" min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="date">📅 Date</label>
+                <input type="date" id="date" name="date" class="form-control" required 
+                       value="{{ today }}"
+>
+            </div>
+            
+            <div style="display: flex; gap: 15px; margin-top: 30px;">
+                <button type="submit" class="btn" style="flex: 1; padding: 16px;">
+                    💾 Save Entry
+                </button>
+                <a href="{{ url_for('expense_history') }}" class="btn btn-secondary" style="flex: 1; padding: 16px; text-align: center;">
+                    📊 View History
+                </a>
+            </div>
+        </form>
+        
+        <!-- Quick Entry Examples -->
+        <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%); border-radius: 15px;">
+            <h4 style="color: var(--dark-green); margin-bottom: 15px;">💡 Common Farm Entries:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                <div style="background: white; padding: 15px; border-radius: 10px;">
+                    <div style="color: #e74c3c; font-weight: 600;">💸 Expenses</div>
+                    <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                        • Seeds<br>• Fertilizers<br>• Labor<br>• Equipment
+                    </div>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 10px;">
+                    <div style="color: #27ae60; font-weight: 600;">💰 Income</div>
+                    <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                        • Crop Sales<br>• Subsidies<br>• Grants<br>• Rentals
+                    </div>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 10px;">
+                    <div style="color: var(--dark-green); font-weight: 600;">📊 Tips</div>
+                    <div style="color: var(--gray); font-size: 0.9rem; margin-top: 5px;">
+                        • Record daily<br>• Categorize well<br>• Track seasonally
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set default date to today
+    document.getElementById('date').value = new Date().toISOString().split('T')[0];
+</script>
+{% endblock %}

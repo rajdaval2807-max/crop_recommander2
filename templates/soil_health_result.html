@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div style="
+    --health-color: {{ analysis.color }};
+    --health-score: {{ analysis.score }}%;
+    max-width: 800px; margin: 0 auto; padding: 20px;
+">
+
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            🌱 Soil Health Analysis
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            Based on your soil parameters
+        </p>
+    </div>
+
+    <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 15px 40px var(--shadow);">
+
+        <!-- Health Score -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <div style="font-size: 4rem; margin-bottom: 20px; color: var(--health-color);">
+                {% if analysis.health == "Excellent" %}😊
+                {% elif analysis.health == "Good" %}🙂
+                {% elif analysis.health == "Moderate" %}😐
+                {% else %}😟
+                {% endif %}
+            </div>
+
+            <h2 class="health-title">
+                {{ analysis.health }} Soil Health
+            </h2>
+
+            <div class="health-score">
+                {{ analysis.score }}/100
+            </div>
+        </div>
+
+        <!-- Health Meter -->
+        <div style="margin-bottom: 40px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <span style="color: var(--gray);">Poor</span>
+                <span style="color: var(--gray);">Excellent</span>
+            </div>
+
+            <div class="health-meter">
+                <div class="health-fill {{ analysis.health|lower }}"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                <span style="color: #e74c3c;">0</span>
+                <span style="color: #f39c12;">25</span>
+                <span style="color: #3498db;">50</span>
+                <span style="color: #2ecc71;">75</span>
+                <span style="color: #27ae60;">100</span>
+            </div>
+        </div>
+
+        <!-- Parameter Summary -->
+        <div style="margin-bottom: 40px;">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px;">📊 Parameter Summary</h3>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                <div class="param-card">
+                    <div class="param-label">Nitrogen (N)</div>
+                    <div class="param-value" style="color:#27ae60">{{ N }}</div>
+                    <div class="param-unit">mg/kg</div>
+                </div>
+
+                <div class="param-card">
+                    <div class="param-label">Phosphorus (P)</div>
+                    <div class="param-value" style="color:#3498db">{{ P }}</div>
+                    <div class="param-unit">mg/kg</div>
+                </div>
+
+                <div class="param-card">
+                    <div class="param-label">Potassium (K)</div>
+                    <div class="param-value" style="color:#f39c12">{{ K }}</div>
+                    <div class="param-unit">mg/kg</div>
+                </div>
+
+                <div class="param-card">
+                    <div class="param-label">pH Level</div>
+                    <div class="param-value" style="color:#9b59b6">{{ ph }}</div>
+                    <div class="param-unit">scale</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suggestions -->
+        {% if analysis.suggestions %}
+        <div style="margin-bottom: 40px;">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px;">💡 Improvement Suggestions</h3>
+            <div class="alert alert-info">
+                <div class="alert-icon">💡</div>
+                <div>
+                    <strong>To improve your soil health:</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        {% for suggestion in analysis.suggestions %}
+                        <li style="margin-bottom: 8px;">{{ suggestion }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div style="margin-bottom: 40px;">
+            <div class="alert alert-success">
+                <div class="alert-icon">✅</div>
+                <div>
+                    <strong>Excellent Soil Health!</strong>
+                    <p style="margin-top: 10px;">Your soil parameters are within optimal ranges. Maintain current practices.</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Next Steps -->
+        <div style="border-top: 2px solid var(--light-gray); padding-top: 30px;">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px;">🚀 Recommended Actions</h3>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="{{ url_for('crop') }}" class="btn">🌾 Get Crop Recommendations</a>
+                <a href="{{ url_for('soil_health') }}" class="btn btn-secondary">🔁 Test Again</a>
+                <a href="{{ url_for('guide') }}" class="btn btn-secondary">📚 Read Guide</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

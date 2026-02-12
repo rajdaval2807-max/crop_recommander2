@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; min-height: calc(100vh - 200px); align-items: center; justify-content: center; padding: 40px 20px;">
+    <div class="form-container">
+        <h2>🚀 Join AgroAI</h2>
+        <p style="text-align: center; color: var(--gray); margin-bottom: 30px;">
+            Create your account to start smart farming today
+        </p>
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">👤 Choose Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter a unique username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">🔒 Create Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter a strong password" required>
+            </div>
+            
+            <button type="submit" class="btn" style="width: 100%; margin-top: 20px;">
+                Create Account
+            </button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 30px; padding-top: 25px; border-top: 1px solid var(--light-gray);">
+            <p style="color: var(--gray);">
+                Already have an account? 
+                <a href="{{ url_for('login') }}" style="color: var(--primary-green); text-decoration: none; font-weight: 600;">
+                    Sign In Here
+                </a>
+            </p>
+        </div>
+        
+        <div style="background: var(--light-green); padding: 20px; border-radius: 15px; margin-top: 30px;">
+            <h4 style="color: var(--dark-green); margin-bottom: 10px;">✨ Why Join?</h4>
+            <ul style="color: var(--gray); padding-left: 20px;">
+                <li>Free AI-powered soil analysis</li>
+                <li>Personalized crop recommendations</li>
+                <li>Track your farming decisions</li>
+                <li>Join sustainable farming community</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

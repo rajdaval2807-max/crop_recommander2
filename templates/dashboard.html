@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1400px; margin: 0 auto; padding: 20px;">
+    <!-- Welcome Message -->
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 10px;">
+            Welcome, {% if session.get("user") %}{{ session.get("user") }}{% else %}Farmer{% endif %}! 👨‍🌾
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">
+            Smart farming starts here. Use our AI tools to optimize your farm productivity.
+        </p>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div style="font-size: 2rem; color: var(--primary-green); margin-bottom: 10px;">💰</div>
+            <div class="stat-value">₹{{ "%.2f"|format(total_income - total_expense) }}</div>
+            <div class="stat-label">Current Balance</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size: 2rem; color: #3498db; margin-bottom: 10px;">📈</div>
+            <div class="stat-value">₹{{ "%.2f"|format(total_income) }}</div>
+            <div class="stat-label">Total Income</div>
+        </div>
+        <div class="stat-card">
+            <div style="font-size: 2rem; color: #e74c3c; margin-bottom: 10px;">📉</div>
+            <div class="stat-value">₹{{ "%.2f"|format(total_expense) }}</div>
+            <div class="stat-label">Total Expenses</div>
+        </div>
+    </div>
+
+    <!-- Feature Cards -->
+    <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; text-align: center; margin: 50px 0 30px;">
+        🌱 AI Farming Tools
+    </h2>
+    
+    <div class="card-grid">
+        <!-- Soil Detection -->
+        <div class="card">
+            <a href="{{ url_for('soil') }}" class="card-link">
+                <div class="card-icon">📷</div>
+                <h3>Soil Type Detection</h3>
+                <p>Upload soil photos for instant AI classification. Identify soil type in seconds.</p>
+                <div style="color: var(--primary-green); font-weight: 600; margin-top: 20px;">
+                    Detect Soil →
+                </div>
+            </a>
+        </div>
+
+        <!-- Crop Recommendation -->
+        <div class="card">
+            <a href="{{ url_for('crop') }}" class="card-link">
+                <div class="card-icon">🌾</div>
+                <h3>Crop Recommendation</h3>
+                <p>Get AI-powered crop suggestions based on soil type and environmental factors.</p>
+                <div style="color: var(--primary-green); font-weight: 600; margin-top: 20px;">
+                    Get Crops →
+                </div>
+            </a>
+        </div>
+
+        <!-- Soil Health Meter -->
+        <div class="card">
+            <a href="{{ url_for('soil_health') }}" class="card-link">
+                <div class="card-icon">💚</div>
+                <h3>Soil Health Meter</h3>
+                <p>Analyze NPK and pH levels. Get soil health score and improvement suggestions.</p>
+                <div style="color: var(--primary-green); font-weight: 600; margin-top: 20px;">
+                    Check Health →
+                </div>
+            </a>
+        </div>
+
+        <!-- Weather Forecast -->
+        <div class="card">
+            <a href="{{ url_for('weather') }}" class="card-link">
+                <div class="card-icon">⛅</div>
+                <h3>Weather Forecast</h3>
+                <p>5-day weather forecast with alerts for heavy rain, heatwaves, and storms.</p>
+                <div style="color: var(--primary-green); font-weight: 600; margin-top: 20px;">
+                    View Weather →
+                </div>
+            </a>
+        </div>
+
+        <!-- Expense Calculator -->
+        <div class="card">
+            <a href="{{ url_for('expense') }}" class="card-link">
+                <div class="card-icon">💰</div>
+                <h3>Expense Calculator</h3>
+                <p>Track farm income and expenses. Calculate profits and manage finances.</p>
+                <div style="color: var(--primary-green); font-weight: 600; margin-top: 20px;">
+                    Manage Finances →
+                </div>
+            </a>
+        </div>
+
+        <!-- Government Schemes -->
+        <div class="card">
+            <a href="{{ url_for('schemes') }}" class="card-link">
+                <div class="card-icon">🏛️</div>
+                <h3>Govt. Schemes</h3>
+                <p>Latest government schemes, subsidies, and financial assistance for farmers.</p>
+                <div style="color: var(--primary-green); font-weight: 600; margin-top: 20px;">
+                    View Schemes →
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Recent History -->
+    {% if recent_history %}
+    <div style="margin: 60px 0;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 30px;">
+            📝 Recent Predictions
+        </h2>
+        <div style="background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <div style="display: grid; gap: 20px;">
+                {% for record in recent_history %}
+                <div style="padding: 20px; border-bottom: 1px solid var(--light-gray); display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            {% if record.prediction_type == 'Crop' %}
+                                <span style="font-size: 1.5rem;">🌾</span>
+                            {% else %}
+                                <span style="font-size: 1.5rem;">🌍</span>
+                            {% endif %}
+                            <div>
+                                <div style="font-weight: 600; color: var(--dark-green);">{{ record.prediction_type }}</div>
+                                <div style="color: var(--gray);">{{ record.result }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">
+                        {{ record.timestamp.strftime('%b %d, %Y') }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ url_for('history') }}" class="btn" style="padding: 10px 25px;">
+                    View All History
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Quick Tips -->
+    <div style="background: linear-gradient(135deg, var(--light-green) 0%, #e6f7ff 100%); 
+                padding: 40px; 
+                border-radius: 20px; 
+                margin: 60px 0;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; text-align: center; margin-bottom: 30px;">
+            💡 Farming Tips of the Day
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            <div style="background: white; padding: 25px; border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">🌧️ Rainwater Harvesting</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Collect rainwater during monsoon season. It's pure, free, and reduces dependence on groundwater.
+                </p>
+            </div>
+            <div style="background: white; padding: 25px; border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">🌾 Crop Rotation</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Rotate crops every season to maintain soil fertility and prevent pest buildup.
+                </p>
+            </div>
+            <div style="background: white; padding: 25px; border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">🧪 Soil Testing</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    Test soil every 6 months to adjust fertilizer use and maintain optimal nutrient levels.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+ {% endblock %}

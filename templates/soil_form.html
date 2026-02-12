@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            🌍 Soil Type Detection
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            Upload a photo of your soil to identify its type using AI-powered analysis
+        </p>
+    </div>
+    
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <div style="font-size: 4rem; color: var(--primary-green); margin-bottom: 20px;">
+                    📷
+                </div>
+                <h3 style="color: var(--dark-green); margin-bottom: 15px;">
+                    Upload Soil Image
+                </h3>
+            </div>
+            
+            <div class="form-group" style="text-align:center;">
+    <input type="file" id="soil_image" name="soil_image"
+           class="form-control"
+           accept="image/*"
+           onchange="previewImage(event)"
+           style="padding: 20px; text-align: center; cursor: pointer; background: white;">
+
+    <!-- Image Preview -->
+    <div id="preview-container" style="margin-top:20px; display:none;">
+        <p style="color: var(--dark-green); font-weight:600;">Selected Image:</p>
+        <img id="image-preview"
+             style="max-width:100%; height:250px; object-fit:cover; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+
+        <br><br>
+        
+    </div>
+</div>
+
+            
+            <button type="submit" class="btn" style="width: 100%; padding: 16px; font-size: 1.1rem;">
+                🔍 Analyze Soil Type
+            </button>
+        </form>
+        
+        <!-- Guide Section -->
+        <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%); border-radius: 15px;">
+            <h4 style="color: var(--dark-green); margin-bottom: 15px;">📝 How to Get Best Results:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">①</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Clean Sample</div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">Remove debris from soil</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">②</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Good Lighting</div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">Use natural daylight</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">③</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Close-up</div>
+                    <div style="color: var(--gray); font-size: 0.9rem;">Fill frame with soil</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function previewImage(event) {
+    const reader = new FileReader();
+    reader.onload = function () {
+        const preview = document.getElementById('image-preview');
+        preview.src = reader.result;
+        document.getElementById('preview-container').style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
+
+function removeImage() {
+    const input = document.getElementById('soil_image');
+    input.value = ""; // reset file input
+    document.getElementById('preview-container').style.display = 'none';
+}
+</script>
+{% endblock %}
+

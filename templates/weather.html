@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            ⛅ Weather Forecast
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            5-day weather forecast with agricultural alerts and recommendations
+        </p>
+    </div>
+    
+    <!-- Weather Form -->
+    <div class="form-container" style="max-width: 600px; margin-bottom: 40px;">
+        <form method="POST">
+            <h3 style="color: var(--dark-green); margin-bottom: 20px; text-align: center;">
+                Enter Your City
+            </h3>
+            <div class="form-group">
+                <label for="city">📍 City Name</label>
+                <input type="text" id="city" name="city" class="form-control" required 
+                       placeholder="e.g., Hyderabad, Mumbai, Delhi" value="{{ weather_data.city if weather_data else '' }}">
+            </div>
+            <button type="submit" class="btn" style="width: 100%; padding: 16px; font-size: 1.1rem;">
+                🔍 Get Weather Forecast
+            </button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px; color: var(--gray); font-size: 0.9rem;">
+            Powered by OpenWeatherMap API
+        </div>
+    </div>
+    
+    {% if error %}
+    <div class="alert alert-warning">
+        <div class="alert-icon">⚠️</div>
+        <div>
+            <strong>Error:</strong> {{ error }}. Please check the city name and try again.
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if weather_data %}
+    <!-- Current Weather -->
+    <div style="background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%); 
+                color: white; 
+                padding: 30px; 
+                border-radius: 20px; 
+                margin-bottom: 40px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <div>
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 5px;">
+                    {{ weather_data.city }}, {{ weather_data.country }}
+                </h2>
+                <p style="opacity: 0.9;">Current Weather Forecast</p>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 3rem;">
+                    {% if weather_data.forecast[0].temp_max > 35 %}🔥
+                    {% elif weather_data.forecast[0].temp_max < 15 %}❄️
+                    {% elif weather_data.forecast[0].rain > 10 %}🌧️
+                    {% else %}⛅{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Weather Warnings -->
+    {% if weather_data.warnings %}
+    <div style="margin-bottom: 40px;">
+        <h3 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 20px;">
+            ⚠️ Weather Alerts
+        </h3>
+        {% for warning in weather_data.warnings %}
+        <div class="alert alert-warning" style="margin-bottom: 15px;">
+            <div class="alert-icon">⚠️</div>
+            <div>{{ warning }}</div>
+        </div>
+        {% endfor %}
+        
+        <!-- Recommendations -->
+        <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); 
+                    padding: 20px; 
+                    border-radius: 15px; 
+                    margin-top: 20px;">
+            <h4 style="color: #d35400; margin-bottom: 15px;">📋 Agricultural Recommendations:</h4>
+            <ul style="color: #d35400; padding-left: 20px;">
+                <li>Delay irrigation if heavy rain is expected</li>
+                <li>Protect crops from strong winds</li>
+                <li>Increase irrigation during heatwaves</li>
+                <li>Harvest crops before heavy rainfall</li>
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- 5-Day Forecast -->
+    <h3 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 30px;">
+        📅 5-Day Forecast
+    </h3>
+    
+    <div class="weather-grid">
+        {% for day in weather_data.forecast %}
+        <div class="weather-card">
+            <h4>{{ day.day_name }}</h4>
+            <div style="font-size: 0.9rem; color: var(--gray); margin-bottom: 15px;">
+                {{ day.date.strftime('%b %d') }}
+            </div>
+            
+            <div style="font-size: 2rem; margin: 15px 0;">
+                {% if day.rain > 10 %}🌧️
+                {% elif day.temp_max > 35 %}🔥
+                {% elif day.temp_min < 15 %}❄️
+                {% elif 'cloud' in day.description.lower() %}☁️
+                {% else %}☀️{% endif %}
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <div class="weather-temp" style="color: #e74c3c;">{{ day.temp_max }}°C</div>
+                <div style="color: var(--gray); font-size: 0.9rem;">High</div>
+            </div>
+            
+            <div style="margin: 15px 0;">
+                <div class="weather-temp" style="color: #3498db;">{{ day.temp_min }}°C</div>
+                <div style="color: var(--gray); font-size: 0.9rem;">Low</div>
+            </div>
+            
+            <div class="weather-details">
+                <div style="display: flex; justify-content: space-between; margin: 5px 0;">
+                    <span>💧 Humidity:</span>
+                    <span>{{ day.humidity }}%</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin: 5px 0;">
+                    <span>🌧️ Rain:</span>
+                    <span>{{ day.rain }}mm</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin: 5px 0;">
+                    <span>💨 Wind:</span>
+                    <span>{{ day.wind_speed }} km/h</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Weather Tips -->
+    <div style="margin-top: 50px; padding: 30px; background: var(--light-green); border-radius: 20px;">
+        <h3 style="color: var(--dark-green); margin-bottom: 20px;">🌾 Weather-Based Farming Tips</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">🌧️ Rainy Days</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    • Stop irrigation<br>
+                    • Prepare drainage<br>
+                    • Harvest before heavy rain
+                </p>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">🔥 Heatwaves</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    • Increase irrigation<br>
+                    • Provide shade<br>
+                    • Water in early morning
+                </p>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">💨 Windy Days</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">
+                    • Secure crops<br>
+                    • Avoid spraying<br>
+                    • Protect equipment
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

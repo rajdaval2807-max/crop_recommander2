@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+    <!-- Hero Section -->
+    <div style="text-align: center; margin-bottom: 60px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 20px;">
+            🌱 About AgroAI
+        </h1>
+        <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+            Empowering farmers with artificial intelligence for sustainable and profitable agriculture
+        </p>
+    </div>
+    
+    <!-- Mission Section -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px;">
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <div style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 20px;">🎯</div>
+            <h3 style="color: var(--dark-green); margin-bottom: 15px;">Our Mission</h3>
+            <p style="color: var(--gray);">
+                To democratize access to agricultural technology and help farmers make data-driven decisions for increased productivity and sustainability.
+            </p>
+        </div>
+        
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow);">
+            <div style="font-size: 2.5rem; color: var(--primary-green); margin-bottom: 20px;">💡</div>
+            <h3 style="color: var(--dark-green); margin-bottom: 15px;">Our Vision</h3>
+            <p style="color: var(--gray);">
+                A world where every farmer has access to AI-powered insights for optimal crop yield and sustainable farming practices.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div style="margin-bottom: 60px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; text-align: center; margin-bottom: 40px;">
+            🚀 What We Offer
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+            <div style="text-align: center; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px var(--shadow);">
+                <div style="font-size: 2rem; color: var(--primary-green); margin-bottom: 15px;">🤖</div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">AI-Powered Analysis</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">Advanced machine learning algorithms for accurate soil and crop analysis</p>
+            </div>
+            
+            <div style="text-align: center; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px var(--shadow);">
+                <div style="font-size: 2rem; color: var(--primary-green); margin-bottom: 15px;">📱</div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">User-Friendly Interface</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">Simple, intuitive design that farmers of all tech levels can use easily</p>
+            </div>
+            
+            <div style="text-align: center; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 20px var(--shadow);">
+                <div style="font-size: 2rem; color: var(--primary-green); margin-bottom: 15px;">🌍</div>
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Sustainable Farming</h4>
+                <p style="color: var(--gray); font-size: 0.95rem;">Promoting eco-friendly practices and resource optimization</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Team Section -->
+    <div style="background: linear-gradient(135deg, var(--light-green) 0%, #e6f7ff 100%); padding: 50px; border-radius: 20px; text-align: center;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; margin-bottom: 15px;">
+            👨‍💻 Our Technology
+        </h2>
+        <p style="color: var(--gray); margin-bottom: 30px; max-width: 700px; margin: 0 auto 30px;">
+            Powered by cutting-edge AI models trained on thousands of agricultural datasets
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <div style="font-size: 1.5rem; margin-bottom: 10px;">🧠</div>
+                <div style="font-weight: 600; color: var(--dark-green);">CNN Models</div>
+                <div style="color: var(--gray); font-size: 0.9rem;">Soil image classification</div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <div style="font-size: 1.5rem; margin-bottom: 10px;">📊</div>
+                <div style="font-weight: 600; color: var(--dark-green);">ML Algorithms</div>
+                <div style="color: var(--gray); font-size: 0.9rem;">Crop prediction models</div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <div style="font-size: 1.5rem; margin-bottom: 10px;">🔒</div>
+                <div style="font-weight: 600; color: var(--dark-green);">Secure Database</div>
+                <div style="color: var(--gray); font-size: 0.9rem;">User data protection</div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 15px;">
+                <div style="font-size: 1.5rem; margin-bottom: 10px;">⚡</div>
+                <div style="font-weight: 600; color: var(--dark-green);">Fast Processing</div>
+                <div style="color: var(--gray); font-size: 0.9rem;">Real-time predictions</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

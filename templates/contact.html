@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 50px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.8rem; margin-bottom: 15px;">
+            📞 Contact Us
+        </h1>
+        <p style="color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+            We're here to help you with your farming journey. Get in touch with our team!
+        </p>
+    </div>
+    
+    <!-- Contact Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px;">
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); text-align: center;">
+            <div style="font-size: 3rem; color: var(--primary-green); margin-bottom: 20px;">📧</div>
+            <h3 style="color: var(--dark-green); margin-bottom: 15px;">Email Us</h3>
+            <p style="color: var(--gray); margin-bottom: 20px;">
+                Drop us an email for any inquiries or support
+            </p>
+            <a href="mailto:support@agroai.com" style="color: var(--primary-green); font-weight: 600; text-decoration: none;">
+                support@agroai.com
+            </a>
+        </div>
+        
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); text-align: center;">
+            <div style="font-size: 3rem; color: var(--primary-green); margin-bottom: 20px;">📱</div>
+            <h3 style="color: var(--dark-green); margin-bottom: 15px;">Call Us</h3>
+            <p style="color: var(--gray); margin-bottom: 20px;">
+                Available Monday to Friday, 9 AM to 6 PM
+            </p>
+            <div style="color: var(--primary-green); font-weight: 600;">
+                +91 98765 43210
+            </div>
+        </div>
+        
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px var(--shadow); text-align: center;">
+            <div style="font-size: 3rem; color: var(--primary-green); margin-bottom: 20px;">📍</div>
+            <h3 style="color: var(--dark-green); margin-bottom: 15px;">Visit Us</h3>
+            <p style="color: var(--gray); margin-bottom: 20px;">
+                Agricultural AI Research Center
+            </p>
+            <div style="color: var(--primary-green); font-weight: 600;">
+                Hyderabad, Telangana, India
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div style="background: linear-gradient(135deg, var(--light-green) 0%, #e6f7ff 100%); padding: 50px; border-radius: 20px; margin-bottom: 50px;">
+        <h2 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; text-align: center; margin-bottom: 30px;">
+            ❓ Frequently Asked Questions
+        </h2>
+        
+        <div style="max-width: 700px; margin: 0 auto;">
+            <div style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">How accurate are the predictions?</h4>
+                <p style="color: var(--gray);">Our AI models achieve over 95% accuracy based on extensive training with agricultural datasets.</p>
+            </div>
+            
+            <div style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Is my data secure?</h4>
+                <p style="color: var(--gray);">Yes, we use encryption and secure protocols to protect all user data and predictions.</p>
+            </div>
+            
+            <div style="background: white; padding: 25px; border-radius: 15px; margin-bottom: 15px;">
+                <h4 style="color: var(--dark-green); margin-bottom: 10px;">Is AgroAI free to use?</h4>
+                <p style="color: var(--gray);">Yes, our basic soil analysis and crop recommendations are completely free for farmers.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Support Hours -->
+    <div style="text-align: center; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 20px var(--shadow);">
+        <h3 style="color: var(--dark-green); margin-bottom: 15px;">🕒 Support Hours</h3>
+        <p style="color: var(--gray); margin-bottom: 10px;">
+            <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM IST
+        </p>
+        <p style="color: var(--gray);">
+            <strong>Saturday - Sunday:</strong> 10:00 AM - 4:00 PM IST
+        </p>
+    </div>
+</div>
+{% endblock %}

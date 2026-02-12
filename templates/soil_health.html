@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            💚 Soil Health Meter
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            Analyze your soil's nutrient levels and get improvement suggestions
+        </p>
+    </div>
+    
+    <div class="form-container">
+        <form method="POST">
+            <h3 style="color: var(--dark-green); margin-bottom: 25px; text-align: center;">
+                Enter Soil Parameters
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div class="form-group">
+                    <label for="N">
+                        <span style="color: #27ae60; font-weight: bold;">🌿 Nitrogen (N)</span>
+                        <span style="color: var(--gray); font-size: 0.9rem;"> mg/kg</span>
+                    </label>
+                    <input type="number" id="N" name="N" class="form-control" step="0.1" required 
+                           placeholder="e.g., 90" min="0" max="140">
+                    <div style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">
+                        Optimal: 80-120 mg/kg
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="P">
+                        <span style="color: #3498db; font-weight: bold;">🧪 Phosphorus (P)</span>
+                        <span style="color: var(--gray); font-size: 0.9rem;"> mg/kg</span>
+                    </label>
+                    <input type="number" id="P" name="P" class="form-control" step="0.1" required 
+                           placeholder="e.g., 42" min="0" max="145">
+                    <div style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">
+                        Optimal: 40-60 mg/kg
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="K">
+                        <span style="color: #f39c12; font-weight: bold;">⚡ Potassium (K)</span>
+                        <span style="color: var(--gray); font-size: 0.9rem;"> mg/kg</span>
+                    </label>
+                    <input type="number" id="K" name="K" class="form-control" step="0.1" required 
+                           placeholder="e.g., 43" min="0" max="205">
+                    <div style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">
+                        Optimal: 40-80 mg/kg
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ph">
+                        <span style="color: #9b59b6; font-weight: bold;">📈 pH Level</span>
+                    </label>
+                    <input type="number" id="ph" name="ph" class="form-control" step="0.1" required 
+                           placeholder="e.g., 6.5" min="0" max="14">
+                    <div style="font-size: 0.85rem; color: var(--gray); margin-top: 5px;">
+                        Optimal: 6.0-7.5 (Neutral)
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn" style="width: 100%; padding: 16px; font-size: 1.1rem;">
+                🔍 Analyze Soil Health
+            </button>
+        </form>
+        
+        <!-- Info Box -->
+        <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #f0f7ff 0%, #e6f7ff 100%); border-radius: 15px;">
+            <h4 style="color: var(--dark-green); margin-bottom: 15px;">📊 Nutrient Guide:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; margin-bottom: 5px; color: #27ae60;">🌿 N</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Nitrogen</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">Leaf growth</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; margin-bottom: 5px; color: #3498db;">🧪 P</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Phosphorus</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">Root development</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; margin-bottom: 5px; color: #f39c12;">⚡ K</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Potassium</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">Disease resistance</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.2rem; margin-bottom: 5px; color: #9b59b6;">📈 pH</div>
+                    <div style="font-weight: 600; color: var(--dark-green);">Acidity Level</div>
+                    <div style="color: var(--gray); font-size: 0.85rem;">Nutrient availability</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(233, 238, 233);
+    background: #2ecc71;
+}
+
+/* NAVBAR */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.navbar nav a {
+    color: rgb(246, 249, 250);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+}
+
+.btn-nav {
+    background: #2ecc71;
+    padding: 6px 14px;
+    border-radius: 4px;
+    color: black !important;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+.hero-overlay {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.hero-btn {
+    background: #2ecc71;
+    color: black;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* PAGE CONTENT */
+.page-content {
+    padding: 80px 10%;
+    background: #f5f5f5;
+    color: #222;
+}
+
+/* CARDS */
+.card-grid {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    width: 300px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* FORMS */
+.form-box {
+    background: white;
+    padding: 40px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 8px;
+    color: black;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background: #2ecc71;
+    color: black;
+    padding: 10px;
+    border: none;
+    width: 100%;
+}
+
+/* TABLE */
+.history-table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.history-table th {
+    background: #2ecc71;
+    color: black;
+    padding: 10px;
+}
+
+.history-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+/* SUB HERO (About & Contact) */
+.sub-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    color: white;
+}
+
+.about-hero {
+    background: url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8') center/cover no-repeat;
+}
+
+.contact-hero {
+    background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover no-repeat;
+}
+
+/* TEXT CONTENT SECTIONS */
+.text-section {
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* RESULT BOX */
+.result-box {
+    background: white;
+    padding: 50px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 8px;
+    text-align: center;
+    color: black;
+}
+.switch-auth {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.switch-auth a {
+    color: #2e7d32;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.switch-auth a:hover {
+    text-decoration: underline;
+}
+.result-text {
+    font-size: 20px;
+    margin: 20px 0;
+}

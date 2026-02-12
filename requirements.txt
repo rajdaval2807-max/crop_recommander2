@@ -1,0 +1,13 @@
+flask
+flask_sqlalchemy
+gunicorn
+numpy==1.23.5
+pandas
+scikit-learn
+tensorflow-cpu==2.10.0
+opencv-python-headless
+pillow
+matplotlib
+joblib
+requests
+gdown

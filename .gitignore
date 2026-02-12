@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+*.db
+*.h5
+*.pkl
+*.joblib
+.env
+temp.jpg
+temp_crop.jpg

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-content">
+        <h1>🌱 Smart Farming, Smarter Decisions</h1>
+        <p>AI-powered soil analysis and crop recommendations for sustainable agriculture. Get personalized insights to maximize your yield.</p>
+        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px; flex-wrap: wrap;">
+            <a href="{{ url_for('login') }}" class="btn">Start Farming Smart</a>
+            <a href="{{ url_for('about') }}" class="btn btn-secondary">Learn More</a>
+        </div>
+        
+       
+    </div>
+</div>
+{% endblock %}

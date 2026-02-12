@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="color: var(--dark-green); font-family: 'Montserrat', sans-serif; font-size: 2.5rem;">
+            📊 Prediction History
+        </h1>
+        <p style="color: var(--gray); font-size: 1.1rem;">
+            Track all your previous predictions and farming decisions
+        </p>
+    </div>
+    
+    {% if records %}
+    <div style="overflow-x: auto;">
+        <table style="width: 100%; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px var(--shadow);">
+            <thead>
+                <tr style="background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%); color: white;">
+                    <th style="padding: 20px; text-align: left; font-weight: 600;">Type</th>
+                    <th style="padding: 20px; text-align: left; font-weight: 600;">Result</th>
+                    <th style="padding: 20px; text-align: left; font-weight: 600;">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in records %}
+                <tr style="border-bottom: 1px solid var(--light-gray);">
+                    <td style="padding: 20px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            {% if r.prediction_type == 'Crop' %}
+                                <span style="font-size: 1.2rem;">🌾</span>
+                            {% else %}
+                                <span style="font-size: 1.2rem;">🌍</span>
+                            {% endif %}
+                            <span style="font-weight: 500;">{{ r.prediction_type }}</span>
+                        </div>
+                    </td>
+                    <td style="padding: 20px; color: var(--dark-green); font-weight: 500;">
+                        {{ r.result }}
+                    </td>
+                    <td style="padding: 20px; color: var(--gray);">
+                        Tracked
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 30px; padding: 20px; background: var(--light-green); border-radius: 15px;">
+        <div>
+            <h4 style="color: var(--dark-green); margin-bottom: 5px;">Total Predictions: {{ records|length }}</h4>
+            <p style="color: var(--gray); font-size: 0.9rem;">Keep growing your farming knowledge!</p>
+        </div>
+        <a href="{{ url_for('dashboard') }}" class="btn">
+            🚀 New Prediction
+        </a>
+    </div>
+    {% else %}
+    <div style="text-align: center; padding: 60px 20px;">
+        <div style="font-size: 4rem; color: var(--gray); margin-bottom: 20px;">📝</div>
+        <h3 style="color: var(--dark-green); margin-bottom: 15px;">No Predictions Yet</h3>
+        <p style="color: var(--gray); margin-bottom: 30px; max-width: 500px; margin: 0 auto 30px;">
+            You haven't made any predictions yet. Start by analyzing your soil or getting crop recommendations.
+        </p>
+        <a href="{{ url_for('dashboard') }}" class="btn">
+            Make Your First Prediction
+        </a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
