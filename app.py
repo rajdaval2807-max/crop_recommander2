@@ -33,8 +33,7 @@ app.secret_key = "secretkey"
 
 # ================= DATABASE CONFIG =================
 # ================= DATABASE CONFIG =================
-db_path = os.path.join(os.environ.get("RENDER_DISK_PATH", ""), "agro_aiab.db")
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{db_path}"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///agro_aiab.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
