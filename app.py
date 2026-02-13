@@ -33,7 +33,9 @@ app.secret_key = "secretkey"
 
 # ================= DATABASE CONFIG =================
 # ================= DATABASE CONFIG =================
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///agro_aiab.db'
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'agro_aiab.db')
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -549,7 +551,11 @@ def delete_expense(expense_id):
         return jsonify({"success": True})
     return jsonify({"success": False}), 403
 
+# Ensure tables are created
+with app.app_context():
+    db.create_all()
+
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
+    app.run(debug=True)
+
     
